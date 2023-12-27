@@ -1,12 +1,19 @@
 ---
-
+import { Switch } from "@/components/ui/switch";
+import {Button} from "@/components/ui/button"
 ---
 
 <header>
   <div class="flex justify-center space-x-10 border-2 border-red-400 p-4">
-    <p class="">Home</p>
-    <p>Blog</p>
-    <p>About...</p>
-    <img width="26" src="../../public/images/light-dark-mode.svg" />
+    <ul class="flex space-x-10">
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/dsa">DSA</a></li>
+        <li><a href="/ai">AI</a></li>
+        <li><a href="/about">About</a></li>
+        <Switch/>
+    </ul>
+    <Button variant="outline">
+        hi
+    </Button>
   </div>
 </header>
