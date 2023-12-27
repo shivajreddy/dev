@@ -1,19 +1,25 @@
 ---
-import { Switch } from "@/components/ui/switch";
-import {Button} from "@/components/ui/button"
+import ThemeToggle from "@/components/ThemeToggle.astro";
 ---
 
 <header>
-  <div class="flex justify-center space-x-10 border-2 border-red-400 p-4">
-    <ul class="flex space-x-10">
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/dsa">DSA</a></li>
-        <li><a href="/ai">AI</a></li>
-        <li><a href="/about">About</a></li>
-        <Switch/>
+  <div>
+    <ul class="flex justify-center space-x-10 p-4">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/dsa">DSA</a></li>
+      <li><a href="/ai">AI</a></li>
+      <li><a href="/about">About</a></li>
+      <div class="theme-toggle"><ThemeToggle /></div>
     </ul>
-    <Button variant="outline">
-        hi
-    </Button>
   </div>
 </header>
+
+<style>
+  .theme-toggle {
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    height: calc(var(--icon-size) + 2 * var(--icon-padding));
+  }
+</style>

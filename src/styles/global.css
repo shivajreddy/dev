@@ -1,71 +1,267 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
- 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
- 
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
- 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
- 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
- 
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
- 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
- 
+    --radius: 0.5rem;
+
+    /* Colors */
+    --gray-0: #090b11;
+    --gray-50: #141925;
+    --gray-100: #283044;
+    --gray-200: #3d4663;
+    --gray-300: #505d84;
+    --gray-400: #6474a2;
+    --gray-500: #8490b5;
+    --gray-600: #a3acc8;
+    --gray-700: #c3cadb;
+    --gray-800: #e3e6ee;
+    --gray-900: #f3f4f7;
+    --gray-999-basis: 0, 0%, 100%;
+    --gray-999_40: hsla(var(--gray-999-basis), 0.4);
+    --gray-999: #ffffff;
+
+    --accent-light: #c561f6;
+    --accent-regular: #7611a6;
+    --accent-dark: #1c0056;
+    --accent-overlay: hsla(280, 89%, 67%, 0.33);
+    --accent-subtle-overlay: var(--accent-overlay);
+    --accent-text-over: var(--gray-999);
+
+    --link-color: var(--accent-regular);
+
+    /* Gradients */
+    --gradient-stop-1: var(--accent-light);
+    --gradient-stop-2: var(--accent-regular);
+    --gradient-stop-3: var(--accent-dark);
+    --gradient-subtle: linear-gradient(
+      150deg,
+      var(--gray-900) 19%,
+      var(--gray-999) 150%
+    );
+    --gradient-accent: linear-gradient(
+      150deg,
+      var(--gradient-stop-1),
+      var(--gradient-stop-2),
+      var(--gradient-stop-3)
+    );
+    --gradient-accent-orange: linear-gradient(
+      150deg,
+      #ca7879,
+      var(--accent-regular),
+      var(--accent-dark)
+    );
+    --gradient-stroke: linear-gradient(
+      180deg,
+      var(--gray-900),
+      var(--gray-700)
+    );
+
+    /* Shadows */
+    --shadow-sm: 0px 6px 3px rgba(9, 11, 17, 0.01),
+      0px 4px 2px rgba(9, 11, 17, 0.01), 0px 2px 2px rgba(9, 11, 17, 0.02),
+      0px 0px 1px rgba(9, 11, 17, 0.03);
+    --shadow-md: 0px 28px 11px rgba(9, 11, 17, 0.01),
+      0px 16px 10px rgba(9, 11, 17, 0.03), 0px 7px 7px rgba(9, 11, 17, 0.05),
+      0px 2px 4px rgba(9, 11, 17, 0.06);
+    --shadow-lg: 0px 62px 25px rgba(9, 11, 17, 0.01),
+      0px 35px 21px rgba(9, 11, 17, 0.05), 0px 16px 16px rgba(9, 11, 17, 0.1),
+      0px 4px 9px rgba(9, 11, 17, 0.12);
+
+    /* Text Sizes */
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-md: 1.125rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.625rem;
+    --text-2xl: 2.125rem;
+    --text-3xl: 2.625rem;
+    --text-4xl: 3.5rem;
+    --text-5xl: 4.5rem;
+
+    /* Fonts */
+    --font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    --font-body: "Public Sans", var(--font-system);
+    --font-brand: Rubik, var(--font-system);
+
+    /* Transitions */
+    --theme-transition: 0.2s ease-in-out;
+
+    /*:: Light Theme ::*/
+    /* + catppuccin-Latte palette*/
+    --rosewater: #dc8a78;
+    --flamingo: #dd7878;
+    --pink: #ea76cb;
+    --mauve: #8839ef;
+    --red: #d20f39;
+    --maroon: #e64553;
+    --peach: #fe640b;
+    --yellow: #df8e1d;
+    --green: #40a02b;
+    --teal: #179299;
+    --sky: #04a5e5;
+    --sapphire: #209fb5;
+    --blue: #1e66f5;
+    --lavender: #7287fd;
+    --text-0: #4c4f69;
+    --text-1: #343541;
+    --subtext1: #5c5f77;
+    --subtext0: #6c6f85;
+    --overlay2: #7c7f93;
+    --overlay1: #8c8fa1;
+    --overlay0: #9ca0b0;
+    --surface2: #acb0be;
+    --surface1: #bcc0cc;
+    --surface0: #ccd0da;
+    --base: #eff1f5;
+    --mantle: #e6e9ef;
+    --crust: #dce0e8;
+
+    /* + shadcn - light palette*/
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
     --radius: 0.5rem;
   }
- 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
- 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
- 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
- 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
- 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-  }
 }
- 
+
+:root.theme-dark {
+  /* + catppuccin-Mocha palette*/
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --pink: #f5c2e7;
+  --mauve: #cba6f7;
+  --red: #f38ba8;
+  --maroon: #eba0ac;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --sky: #89dceb;
+  --sapphire: #74c7ec;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+  --text: #cdd6f4;
+  --subtext1: #bac2de;
+  --subtext0: #a6adc8;
+  --overlay2: #9399b2;
+  --overlay1: #7f849c;
+  --overlay0: #6c7086;
+  --surface2: #585b70;
+  --surface1: #45475a;
+  --surface0: #313244;
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+
+  /*+ shadcn - dark palette +*/
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+
+  --gray-0: #ffffff;
+  --gray-50: #f3f4f7;
+  --gray-100: #e3e6ee;
+  --gray-200: #c3cadb;
+  --gray-300: #a3acc8;
+  --gray-400: #8490b5;
+  --gray-500: #6474a2;
+  --gray-600: #505d84;
+  --gray-700: #3d4663;
+  --gray-800: #283044;
+  --gray-900: #141925;
+  --gray-999-basis: 225, 31%, 5%;
+  --gray-999: #090b11;
+
+  --accent-light: #1c0056;
+  --accent-regular: #7611a6;
+  --accent-dark: #c561f6;
+  --accent-overlay: hsla(280, 89%, 67%, 0.33);
+  --accent-subtle-overlay: hsla(281, 81%, 36%, 0.33);
+  --accent-text-over: var(--gray-0);
+
+  --link-color: var(--accent-dark);
+
+  --gradient-stop-1: #4c11c6;
+  --gradient-subtle: linear-gradient(
+    150deg,
+    var(--gray-900) 19%,
+    var(--gray-999) 81%
+  );
+  --gradient-accent-orange: linear-gradient(
+    150deg,
+    #ca7879,
+    var(--accent-regular),
+    var(--accent-light)
+  );
+  --gradient-stroke: linear-gradient(180deg, var(--gray-600), var(--gray-800));
+
+  --shadow-sm: 0px 6px 3px rgba(255, 255, 255, 0.01),
+    0px 4px 2px rgba(255, 255, 255, 0.01), 0px 2px 2px rgba(255, 255, 255, 0.02),
+    0px 0px 1px rgba(255, 255, 255, 0.03);
+  --shadow-md: 0px 28px 11px rgba(255, 255, 255, 0.01),
+    0px 16px 10px rgba(255, 255, 255, 0.03),
+    0px 7px 7px rgba(255, 255, 255, 0.05), 0px 2px 4px rgba(255, 255, 255, 0.06);
+  --shadow-lg: 0px 62px 25px rgba(255, 255, 255, 0.01),
+    0px 35px 21px rgba(255, 255, 255, 0.05),
+    0px 16px 16px rgba(255, 255, 255, 0.1),
+    0px 4px 9px rgba(255, 255, 255, 0.12);
+}
+
 @layer base {
   * {
     @apply border-border;
